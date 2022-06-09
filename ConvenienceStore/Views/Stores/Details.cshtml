@@ -1,0 +1,122 @@
+﻿@model ConvenienceStore.Models.Store
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="d-flex justify-content-center">
+    <div class="card d-block bg-dark text-white " style="width:600px; border-radius: 22px;">
+        <h3 class="d-flex justify-content-center">Product Details from Store</h3>
+    </div>
+
+</div>
+
+<hr />
+
+<div class="card mt-3">
+    <div class="card-header font-weight-bolder d-flex justify-content-center"> Product Information</div>
+    <div class="card-body">
+        <div class="card-body row">
+            <div class="form-group col-md">
+                <label class="d-flex justify-content-center">
+                    @Html.DisplayNameFor(model => model.Inventory.Product.Category.Name)
+                </label>
+                <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Inventory.Product.Category.Name)" />
+            </div>
+
+            <div class="form-group col-md">
+                <label class="d-flex justify-content-center">
+                    @Html.DisplayNameFor(model => model.Inventory.Product.Name)
+                </label>
+                <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Inventory.Product.Name)" />
+            </div>
+            <div class="form-group col-md">
+                <label class="d-flex justify-content-center">
+                    @Html.DisplayNameFor(model => model.Inventory.Product.Brand)
+                </label>
+                <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Inventory.Product.Brand.Name)" />
+            </div>
+        </div>
+        <div class="form-group col-md">
+            <label class="d-flex justify-content-center">
+                @Html.DisplayNameFor(model => model.Inventory.Product.Description)
+            </label>
+            <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Inventory.Product.Description)" />
+        </div>
+
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header font-weight-bolder d-flex justify-content-center"> Informação do Estoque</div>
+    <div class="card-body">
+        <div class="card-body row">
+
+            <div class="form-group col-md">
+                <label class="d-flex justify-content-center">
+                    @Html.DisplayNameFor(model => model.Inventory.Id)
+                </label>
+                <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Inventory.Id)" />
+            </div>
+
+            <div class="form-group col-md">
+                <label class="d-flex justify-content-center">
+                    @Html.DisplayNameFor(model => model.Inventory.Cost)
+                </label>
+                <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Inventory.Cost)" />
+            </div>
+
+            <div class="form-group col-md">
+                <label class="d-flex justify-content-center">
+                    @Html.DisplayNameFor(model => model.Inventory.Date)
+                </label>
+                <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Inventory.Date)" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header font-weight-bolder d-flex justify-content-center"> Informação da Loja</div>
+    <div class="card-body">
+        <div class="card-body row">
+
+            <div class="form-group col-md">
+                <label class="d-flex justify-content-center">
+                    @Html.DisplayNameFor(model => model.Id)
+                </label>
+                <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Id)" />
+            </div>
+
+            <div class="form-group col-md">
+                <label class="d-flex justify-content-center">
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </label>
+                <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Quantity)" />
+            </div>
+
+
+            <div class="form-group col-md">
+                <label class="d-flex justify-content-center">
+                    @Html.DisplayNameFor(model => model.Price)
+                </label>
+                <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Price)" />
+            </div>
+
+            <div class="form-group col-md">
+                <label class="d-flex justify-content-center">
+                    @Html.DisplayNameFor(model => model.Date)
+                </label>
+                <input class="form-control" style="border-radius: 22px;" disabled value="@Html.DisplayFor(model => model.Date)" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr/>
+<div class="d-flex justify-content-center">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary" style="border-radius: 35px;">Editar</a>
+    <p>&ensp;</p>
+    <a asp-action="Index" class="btn btn-light" style="border-radius: 35px;">Voltar</a>
+</div>

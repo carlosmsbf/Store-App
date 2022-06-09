@@ -1,0 +1,68 @@
+﻿@model ConvenienceStore.Models.Inventory
+
+@{
+    ViewData["Title"] = "Add Product to Inventory";
+}
+
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="d-flex justify-content-center">
+        <div class="card d-block bg-dark text-white " style="width:600px; border-radius: 22px;">
+            <h3 class="d-flex justify-content-center">Add Product to Inventory</h3>
+        </div>
+
+    </div>
+
+    <hr />
+
+
+    <div class="card mt-3">
+        <div class="card-header d-flex justify-content-center"> Product Information</div>
+        <div class="card-body">
+
+
+            <div class="card-body row">
+                <div class="col-md">
+
+
+                    <div class="form-group col-md">
+                        <label asp-for="ProductId" class="control-label d-flex justify-content-center"></label>
+                        <select asp-for="ProductId" class="form-control" size="7" aria-label="size 3 select example" asp-items="ViewBag.ProductId"></select>
+                    </div>
+                </div>
+
+
+                <div class="col-md">
+                    <div class="form-group col-md">
+                        <label asp-for="Quantity" class="control-label d-flex justify-content-center"></label>
+                        <input asp-for="Quantity" class="form-control" style="border-radius: 22px;" />
+                        <span asp-validation-for="Quantity" class="text-danger d-flex justify-content-center"></span>
+                    </div>
+
+                    <div class="form-group col-md">
+                        <label asp-for="Cost" class="control-label d-flex justify-content-center"></label>
+                        <input asp-for="Cost" class="form-control" style="border-radius: 22px;" />
+                        <span asp-validation-for="Cost" class="text-danger d-flex justify-content-center"></span>
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="Date" class="control-label d-flex justify-content-center"></label>
+                        <input asp-for="Date" class="form-control" style="border-radius: 22px;" />
+                        <span asp-validation-for="Date" class="text-danger d-flex justify-content-center"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="form-group mt-3 d-flex justify-content-center">
+        <input type="submit" value="Add" class="btn btn-primary" style="border-radius: 35px;" />
+        <p>&ensp;</p>
+        <a asp-action="Index" class="btn btn-light" style="border-radius: 35px;">Back</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,44 @@
+﻿@model ConvenienceStore.Models.Brand
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="d-flex justify-content-center">
+    <div class="card d-block bg-dark text-white " style="width:600px; border-radius: 22px;">
+        <h3 class="d-flex justify-content-center">Delete Brand</h3>
+    </div>
+
+</div>
+
+<hr />
+
+<div class="card mt-3">
+    <div class="card-header d-flex justify-content-center"> Brand Information</div>
+    <div class="card-body">
+
+
+        <div class="card-body row d-flex justify-content-center">
+
+            <div class="form-group w-50 p-3">
+                <label asp-for="Name" class="control-label d-flex justify-content-center"></label>
+                <input asp-for="Name" class="form-control d-flex justify-content-center" style="border-radius: 22px;" />
+                <span asp-validation-for="Name" class="text-danger d-flex justify-content-center"></span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="d-flex justify-content-center">
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" style="border-radius: 35px;" />
+
+        <a asp-action="Index" class="btn btn-light" style="border-radius: 35px;">Back</a>
+    </form>
+
+</div>
+

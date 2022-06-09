@@ -1,0 +1,126 @@
+﻿@model IEnumerable<ConvenienceStore.Models.Sale>
+
+@{
+    ViewData["Title"] = "Sales";
+}
+
+<div class="d-flex justify-content-center mb-3">
+    <div class="card d-block bg-dark text-white" style="width:600px; border-radius: 22px;">
+        <h3 class="d-flex justify-content-center">Sales</h3>
+    </div>
+</div>
+
+
+
+<table id="example" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Store.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Store.Inventory.Product.Category.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Store.Inventory.Product.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Store.Inventory.Product.Brand.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Store.Inventory.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Store.Price)
+            </th>
+            <th>
+                Lucro Unitario
+            </th>
+            <th>
+                Lucro Total
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Store.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Store.Inventory.Product.Category.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Store.Inventory.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Store.Inventory.Product.Brand.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Store.Inventory.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Store.Price)
+                </td>
+
+                @{
+                    var i = (item.Store.Price - item.Store.Inventory.Cost);
+                    string str = i.ToString();
+                }
+                <td>
+                    @str
+                </td>
+                @{
+                    str = (i * item.Quantity).ToString();
+                }
+                <td>
+                    @str
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    <div class="d-flex justify-content-end">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn bg-primary" style="color: white; border-radius: 35px; ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+
+<p>
+    <a asp-action="Create" class="btn btn-primary" style="border-radius: 35px;">Register a Sale</a>
+</p>
+
+
+
+@section Scripts {
+    <script>
+        //$(document).ready(function () {
+        //    $('#myTable').DataTable();
+        //});
+
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+}
